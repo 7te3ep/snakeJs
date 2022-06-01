@@ -34,10 +34,11 @@ var caseToModify = '';
 var snakeLen = 2;
 var snakeLog = ['case34']
 var allTable = ['case11','case12','case13','case14','case15','case21','case22','case23','case24','case25','case31','case32','case33','case34','case35','case41','case42','case43','case44','case45','case51','case52','case53','case54','case55'];
-var gameRunning = true;
+var gameRunning = false;
 var fruitEaten = false;
 var fruitPos = String(allTable[Math.floor(Math.random() * allTable.length)]);;
 document.getElementById(String(fruitPos)).style.backgroundColor = 'red';
+speedChange(2);
 
 function speedChange(speedSelected){
     if (speed == 1000) {
@@ -52,17 +53,14 @@ function speedChange(speedSelected){
     if (speedSelected == 1) {
         document.getElementById('1').style.backgroundColor = 'grey';
         speed = 1000;
-        window.setInterval('display()', speed);
     }
     if (speedSelected == 2) {
         document.getElementById('2').style.backgroundColor = 'grey';
         speed = 700;
-        window.setInterval('display()', speed);
     }
     if (speedSelected == 3) {
         document.getElementById('3').style.backgroundColor = 'grey'
         speed = 400;
-        window.setInterval('display()', speed);
     }
 }
 
@@ -150,3 +148,10 @@ function fruitGeneration() {
     allTable = ['case11','case12','case13','case14','case15','case21','case22','case23','case24','case25','case31','case32','case33','case34','case35','case41','case42','case43','case44','case45','case51','case52','case53','case54','case55']
 }
 
+function start() {
+    if (gameRunning == false) {
+        gameRunning = true;
+        window.setInterval('display()', speed);
+        document.getElementById('start').style.backgroundColor = 'lightgreen';
+    }
+}
