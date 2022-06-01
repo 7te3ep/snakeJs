@@ -41,3 +41,25 @@ div {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+
+#speedSelect {
+    border: 3px black solid;
+    padding: 1vw;
+    font-size: 2vw;
+    width: fit-content;
+    margin: 2vw;
+    border-radius: 0px;
+}
+
+.speed{
+    border: 3px black solid;
+    padding: 0.5vw;
+    font-size: 2vw;
+    width: fit-content;
+    margin: 0.5vw;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}

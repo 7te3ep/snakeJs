@@ -24,20 +24,47 @@ let case52 = document.getElementById('case52');
 let case53 = document.getElementById('case53');
 let case54 = document.getElementById('case54');
 let case55 = document.getElementById('case55');
-
+var speed = 1000;
 var score = 00;
 var tic = 0;
-var snakeHeadPos = 33;
+var snakeHeadPos = 34;
 var snakeDirection = 'left';
-var snakeFuturePos = 33;
+var snakeFuturePos = 34;
 var caseToModify = '';
 var snakeLen = 2;
-var snakeLog = ['case33']
+var snakeLog = ['case34']
 var allTable = ['case11','case12','case13','case14','case15','case21','case22','case23','case24','case25','case31','case32','case33','case34','case35','case41','case42','case43','case44','case45','case51','case52','case53','case54','case55'];
 var gameRunning = true;
 var fruitEaten = false;
 var fruitPos = String(allTable[Math.floor(Math.random() * allTable.length)]);;
 document.getElementById(String(fruitPos)).style.backgroundColor = 'red';
+
+function speedChange(speedSelected){
+    if (speed == 1000) {
+        document.getElementById('1').style.backgroundColor = 'white';
+    }
+    if (speed == 700) {
+        document.getElementById('2').style.backgroundColor = 'white';
+    }
+    if (speed == 400) {
+        document.getElementById('3').style.backgroundColor = 'white';
+    }
+    if (speedSelected == 1) {
+        document.getElementById('1').style.backgroundColor = 'grey';
+        speed = 1000;
+        window.setInterval('display()', speed);
+    }
+    if (speedSelected == 2) {
+        document.getElementById('2').style.backgroundColor = 'grey';
+        speed = 700;
+        window.setInterval('display()', speed);
+    }
+    if (speedSelected == 3) {
+        document.getElementById('3').style.backgroundColor = 'grey'
+        speed = 400;
+        window.setInterval('display()', speed);
+    }
+}
 
 window.addEventListener("keydown", function(event) {
     if (gameRunning == true) {
@@ -62,7 +89,7 @@ window.addEventListener("keydown", function(event) {
     }
 });
 
-window.setInterval('display()', 1000);
+
 function display() {
     if (gameRunning == true) {
         if (tic >= snakeLen && fruitEaten == false) {
@@ -88,12 +115,12 @@ function display() {
     }
     else {
         gameRunning = false;
-        console.log('t mort pd');
+        console.log('mort');
     }
     caseToModify = String(`case${snakeFuturePos}`);
     if (snakeLog.includes(caseToModify)) {
         gameRunning = false;
-        console.log('t mort pd');
+        console.log('mort');
     }
     snakeLog.push(caseToModify);
     console.log(snakeLog);
@@ -122,3 +149,4 @@ function fruitGeneration() {
     document.getElementById(fruitPos).style.backgroundColor = 'red';
     allTable = ['case11','case12','case13','case14','case15','case21','case22','case23','case24','case25','case31','case32','case33','case34','case35','case41','case42','case43','case44','case45','case51','case52','case53','case54','case55']
 }
+
